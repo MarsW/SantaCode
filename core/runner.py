@@ -42,8 +42,8 @@ LANGUAGE_CONFIG = {
         'file_flag': ''
     },
     '.kt': {
-        'image': 'cimg/kotlin:1.9.22',
-        'command': 'sh -c "kotlinc $0 -include-runtime -d /tmp/output.jar && java -jar /tmp/output.jar"',
+        'image': 'alpine:3.18',
+        'command': 'sh -c "apk add --no-cache kotlin openjdk17-jre-headless && kotlinc $0 -include-runtime -d /tmp/output.jar && java -jar /tmp/output.jar"',
         'file_flag': ''
     },
     '.swift': {
