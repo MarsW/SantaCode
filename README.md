@@ -32,7 +32,8 @@ Welcome to the Programmer's Secret Santa!
 1.  **Fork Repo**: <a href="https://github.com/gdg-kh/SantaCode" style="color: white;">將本專案 Fork 到你的 GitHub。</a>
     *我們在 12/30 的開發者 Cafe 進行現場的 SantaCode 2025，歡迎一起參加，詳細資訊請看[高雄社群月曆](https://community-card.org/2026/calendar.html)*
 2.  **Create Directory**: 在 `submissions/` 下建立一個你的 **GitHub ID** 資料夾 (e.g., `submissions/torvalds/`).
-3.  **Write Code**: 放入你的程式碼 (e.g., `tree.py`).
+3.  **Write Code**: 放入你的程式碼 (e.g., `tree.py`)。
+    *你可以參考 [submissions/example-santa/](submissions/example-santa/) 裡面的多語言範例檔案。*
 4.  **Pull Request**: 發送 Pull Request。等待綠色勾勾 ✅。
 
 ## 🧪 本地測試 (Local Test)

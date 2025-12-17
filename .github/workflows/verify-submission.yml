@@ -59,14 +59,21 @@ jobs:
           # 找出這一次 PR 新增或修改的程式碼檔案
           # 使用 git diff 找出 submissions/ 下的變更
           git fetch origin master
-          CHANGED_FILES=$(git diff --name-only origin/master HEAD | grep '^submissions/' | grep -E '\.(py|js|go|rb|sh)$' || true)
+          # Exclude example-santa directory
+          CHANGED_FILES=$(git diff --name-only origin/master HEAD | grep '^submissions/' | grep -v '^submissions/example-santa/' | grep -E '\.(py|js|go|rb|sh|java|kt|swift|c|cpp|cs|rs)$' || true)
           
           if [ -z "$CHANGED_FILES" ]; then
-            echo "No submission files detected."
+            echo "No submission files detected (or only example files)."
             echo "has_files=false" >> $GITHUB_OUTPUT
           else
-            echo "Detected files: $CHANGED_FILES"
-            echo "files=$CHANGED_FILES" >> $GITHUB_OUTPUT
+            echo "Detected files:"
+            echo "$CHANGED_FILES"
+            
+            # Handle multi-line output safely
+            echo "files<<EOF" >> $GITHUB_OUTPUT
+            echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            
             echo "has_files=true" >> $GITHUB_OUTPUT
           fi
 
